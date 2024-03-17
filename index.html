@@ -4,41 +4,97 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/assets/favicon.webp">
+    <link rel="icon" href="/assets/favicon.webp" />
     <title>Aristotle</title>
   </head>
-  <body class="relative bg-black overflow-x-hidden">
-    <main class="overflow-x-hidden">
-      <header
-        id="main-header"
-        style="background-color: rgba(0, 0, 0, 0.5)"
-        class="sticky inset-x-0 top-0 z-50 duration-[0.2s] shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] border-b-2 border-b-[rgba(255,255,255,0.06)] border-solid"
+  <body class="relative bg-black">
+    <header
+      id="main-header"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+      class="sticky inset-x-0 top-0 z-50 duration-[0.2s] shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] border-b-2 border-b-[rgba(255,255,255,0.06)] border-solid"
+    >
+      <nav
+        class="flex items-center justify-between px-5 py-2 mx-auto max-w-7xl"
+        aria-label="Global"
       >
-        <nav
-          class="flex items-center justify-between px-5 py-2 mx-auto max-w-7xl"
-          aria-label="Global"
-        >
-          <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Aristotle</span>
-              <img
-                class="h-16 lg:h-20 w-auto"
-                src="./assets/aristotlehq-logo.webp"
-                alt=""
-              />
-            </a>
-          </div>
-          <div class="flex lg:hidden">
-            <!-- Hamburger menu button -->
-            <button
-              id="menu-toggle"
-              type="button"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+        <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Aristotle</span>
+            <img
+              class="h-16 lg:h-20 w-auto"
+              src="./assets/aristotlehq-logo.webp"
+              alt=""
+            />
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <!-- Hamburger menu button -->
+          <button
+            id="menu-toggle"
+            type="button"
+            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!-- SVG for the hamburger icon -->
+            <svg
+              id="hamburger-icon"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#fff"
+              aria-hidden="true"
             >
-              <span class="sr-only">Open main menu</span>
-              <!-- SVG for the hamburger icon -->
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <!-- Desktop menu items -->
+          <a href="#why" class="text-sm font-semibold leading-6 text-white"
+            >Why</a
+          >
+          <a href="#how" class="text-sm font-semibold leading-6 text-white"
+            >How</a
+          >
+          <a href="#who" class="text-sm font-semibold leading-6 text-white"
+            >Who</a
+          >
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <!-- Desktop login link -->
+          <a
+            href="#"
+            class="text-sm font-semibold leading-6 text-white px-6 py-2 bg-brand-500 rounded-3xl hover:bg-brand-800 transition-hover duration-[0.3s]"
+            >Book a demo</a
+          >
+        </div>
+      </nav>
+      <!-- Mobile menu, initially hidden -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden"
+        role="dialog"
+        aria-modal="true"
+      >
+        <!-- Mobile menu content -->
+        <div
+          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10"
+        >
+          <div class="flex items-center justify-between">
+            <!-- Mobile menu close button -->
+            <button
+              id="menu-close"
+              type="button"
+              class="-m-2.5 rounded-md p-2.5 text-gray-400"
+            >
+              <span class="sr-only">Close menu</span>
+              <!-- SVG for the close icon -->
               <svg
-                id="hamburger-icon"
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -49,109 +105,53 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
             </button>
           </div>
-          <div class="hidden lg:flex lg:gap-x-12">
-            <!-- Desktop menu items -->
-            <a href="#why" class="text-sm font-semibold leading-6 text-white"
-              >Why</a
-            >
-            <a href="#how" class="text-sm font-semibold leading-6 text-white"
-              >How</a
-            >
-            <a href="#who" class="text-sm font-semibold leading-6 text-white"
-              >Who</a
-            >
-          </div>
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <!-- Desktop login link -->
-            <a
-              href="#"
-              class="text-sm font-semibold leading-6 text-white px-6 py-2 bg-brand-500 rounded-3xl hover:bg-brand-800 transition-hover duration-[0.3s]"
-              >Book a demo</a
-            >
-          </div>
-        </nav>
-        <!-- Mobile menu, initially hidden -->
-        <div
-          id="mobile-menu"
-          class="lg:hidden hidden"
-          role="dialog"
-          aria-modal="true"
-        >
-          <!-- Mobile menu content -->
-          <div
-            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10"
-          >
-            <div class="flex items-center justify-between">
-              <!-- Mobile menu close button -->
-              <button
-                id="menu-close"
-                type="button"
-                class="-m-2.5 rounded-md p-2.5 text-gray-400"
-              >
-                <span class="sr-only">Close menu</span>
-                <!-- SVG for the close icon -->
-                <svg
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#fff"
-                  aria-hidden="true"
+          <!-- Mobile menu links -->
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/25">
+              <div class="space-y-2 py-6">
+                <a
+                  href="#why"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
+                  >Why</a
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-            <!-- Mobile menu links -->
-            <div class="mt-6 flow-root">
-              <div class="-my-6 divide-y divide-gray-500/25">
-                <div class="space-y-2 py-6">
-                  <a
-                    href="#why"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
-                    >Why</a
-                  >
-                  <a
-                    href="#how"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
-                    >How</a
-                  >
-                  <a
-                    href="#who"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
-                    >Who</a
-                  >
-                  <a
-                    href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
-                    >Company</a
-                  >
-                </div>
-                <div class="py-6">
-                  <a
-                    href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 bg-brand-500 text-white hover:bg-brand-500"
-                    ><span class="flex justify-between"
-                      >Book a demo<span class="flex" aria-hidden="true"
-                        >→</span
-                      ></span
-                    ></a
-                  >
-                </div>
+                <a
+                  href="#how"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
+                  >How</a
+                >
+                <a
+                  href="#who"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
+                  >Who</a
+                >
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-brand-100 hover:bg-opacity-10"
+                  >Company</a
+                >
+              </div>
+              <div class="py-6">
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 bg-brand-500 text-white hover:bg-brand-500"
+                  ><span class="flex justify-between"
+                    >Book a demo<span class="flex" aria-hidden="true"
+                      >→</span
+                    ></span
+                  ></a
+                >
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
+    <main class="overflow-x-hidden">
       <!-- Hero section start -->
       <div class="bg-black">
         <div class="relative isolate pt-14">
@@ -673,8 +673,11 @@
             <div
               class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
             >
-              <article class="flex flex-col items-start justify-between" data-aos="fade-down"
-              data-aos-duration="1200">
+              <article
+                class="flex flex-col items-start justify-between"
+                data-aos="fade-down"
+                data-aos-duration="1200"
+              >
                 <div class="relative w-full">
                   <img
                     src="/assets/grid-image-01.webp"
@@ -705,8 +708,11 @@
                   </div>
                 </div>
               </article>
-              <article class="flex flex-col items-start justify-between" data-aos="fade-down"
-              data-aos-duration="1300">
+              <article
+                class="flex flex-col items-start justify-between"
+                data-aos="fade-down"
+                data-aos-duration="1300"
+              >
                 <div class="relative w-full">
                   <img
                     src="/assets/grid-image-02.webp"
@@ -737,8 +743,11 @@
                   </div>
                 </div>
               </article>
-              <article class="flex flex-col items-start justify-between" data-aos="fade-down"
-              data-aos-duration="1400">
+              <article
+                class="flex flex-col items-start justify-between"
+                data-aos="fade-down"
+                data-aos-duration="1400"
+              >
                 <div class="relative w-full">
                   <img
                     src="/assets/grid-image-03.webp"
@@ -794,8 +803,7 @@
           <dl
             class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
           >
-            <div data-aos="fade-right"
-            data-aos-duration="1200">
+            <div data-aos="fade-right" data-aos-duration="1200">
               <dt class="text-2xl font-semibold text-gray-300">
                 01. Share your leads
               </dt>
@@ -804,8 +812,7 @@
                 your CRM.
               </dd>
             </div>
-            <div data-aos="fade-right"
-            data-aos-duration="1200">
+            <div data-aos="fade-right" data-aos-duration="1200">
               <dt class="text-2xl font-semibold text-gray-300">
                 02. Connect Your Mailbox
               </dt>
@@ -814,8 +821,7 @@
                 leads.
               </dd>
             </div>
-            <div data-aos="fade-right"
-            data-aos-duration="1200">
+            <div data-aos="fade-right" data-aos-duration="1200">
               <dt class="text-2xl font-semibold text-gray-300">
                 03. Approve your outreach
               </dt>
@@ -845,8 +851,9 @@
             <div
               class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4"
             >
-              <figure data-aos="fade-up"
-              data-aos-duration="1200"
+              <figure
+                data-aos="fade-up"
+                data-aos-duration="1200"
                 class="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1"
               >
                 <div class="p-6">
@@ -875,8 +882,9 @@
               </figure>
               <div class="space-y-8 xl:contents xl:space-y-0">
                 <div class="space-y-8 xl:row-span-2">
-                  <figure data-aos="fade-right"
-                  data-aos-duration="1200"
+                  <figure
+                    data-aos="fade-right"
+                    data-aos-duration="1200"
                     class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
                   >
                     <div>
@@ -902,8 +910,9 @@
               </div>
               <div class="space-y-8 xl:contents xl:space-y-0">
                 <div class="space-y-8 xl:row-span-2">
-                  <figure data-aos="fade-left"
-                  data-aos-duration="1200"
+                  <figure
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
                     class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
                   >
                     <div>
@@ -939,8 +948,11 @@
             <h2 class="text-3xl font-bold text-white sm:text-4xl text-center">
               Demo
             </h2>
-            <div class="flex justify-center py-16" data-aos="fade-up"
-            data-aos-duration="1200">
+            <div
+              class="flex justify-center py-16"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+            >
               <video
                 class="rounded-lg max-h-[502px] w-auto"
                 src="/assets/videos/aristotle-demo.mp4"
