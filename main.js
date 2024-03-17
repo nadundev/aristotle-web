@@ -1,4 +1,13 @@
 import "./style.css";
+import Typewriter from 'typewriter-effect/dist/core';
+
+new Typewriter('#typewriter', {
+  strings: ['Ready to win with Aristotle HQ.', 'Welcome to Aristotle HQ.', 'Making the world a better place.'],
+  autoStart: true,
+  loop: true,
+  cursor: "|",
+  delay: 75,
+});
 
 // JavaScript to handle opening and closing of the mobile menu
 document.addEventListener("DOMContentLoaded", () => {
